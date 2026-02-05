@@ -1,0 +1,96 @@
+<div class="seller-auth">
+
+
+    <!-- Signup -->
+    <div
+        *ngIf="!showLogin"
+        class="signup"
+    >
+        <h1>Seller Signup</h1>
+        <form
+            #sellerAuthForm="ngForm"
+            (ngSubmit)="signUp(sellerAuthForm.value)"
+            class="common-form"
+        >
+
+
+            <input
+                class="form-input"
+                type="text"
+                ngModel
+                name="name"
+                placeholder="Enter Name"
+                required
+            >
+            <input
+                class="form-input"
+                type="email"
+                ngModel
+                name="email"
+                placeholder="Enter Email"
+                required
+            >
+            <input
+                class="form-input"
+                type="password"
+                ngModel
+                name="password"
+                placeholder="Enter Password"
+                required
+            >
+
+
+            <button class="form-button">Signup</button>
+            <a (click)="openLogin()">Already have an account? Login</a>
+        </form>
+    </div>
+
+
+    <!-- Login -->
+    <div
+        *ngIf="showLogin"
+        class="login"
+    >
+        <h1>Seller Login</h1>
+
+
+        <p
+            *ngIf="authError"
+            class="authError"
+        >
+            {{ authError }}
+        </p>
+
+
+        <form
+            #sellerLogin="ngForm"
+            (ngSubmit)="Login(sellerLogin.value)"
+            class="common-form"
+        >
+
+
+            <input
+                class="form-input"
+                type="email"
+                ngModel
+                name="email"
+                placeholder="Enter Email"
+                required
+            >
+            <input
+                class="form-input"
+                type="password"
+                ngModel
+                name="password"
+                placeholder="Enter Password"
+                required
+            >
+
+
+            <button class="form-button">Login</button>
+            <a (click)="openSignup()">Don’t have an account? Signup</a>
+        </form>
+    </div>
+
+
+</div>

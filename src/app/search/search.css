@@ -1,0 +1,152 @@
+.search-page {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Title */
+.page-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+   color: #f85606;
+  text-align: center;
+}
+
+/* .product-name a {
+  text-decoration: none;
+  color:  #f85606;
+  font-size: 20px;
+  font-weight: 600;
+} */
+ .product-name a {
+    color: #f85606;       /* text color */
+    text-decoration: none; /* remove underline */
+    font-weight: bold;     /* make text bold */
+    font-size: 16px;       /* font size */
+}
+
+.product-name a:hover {
+    color: #e04e05;        /* change color on hover */
+}
+
+
+/* Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* Card */
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  transition: all 0.25s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+
+/* Image */
+.img-wrap {
+  position: relative;
+  height: 190px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Discount badge */
+.discount {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #f85606;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+/* Body */
+.card-body {
+  padding: 12px;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 500;
+  height: 38px;
+  overflow: hidden;
+  color: #222;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f85606;
+  margin: 6px 0;
+}
+
+.meta {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Button */
+.add-btn {
+  width: 100%;
+  border: none;
+  background: #f85606;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.add-btn:hover {
+  background: #e04e05;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

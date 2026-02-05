@@ -1,0 +1,73 @@
+<div class="cart-page">
+
+  <!-- Page Title -->
+  <div class="cart-header">
+    <h2>My Cart</h2>
+  </div>
+
+  <div class="cart-layout">
+
+    <!-- Left: Cart Items -->
+    <div    class="cart-items">
+
+      <!-- Single Item -->
+      <div   *ngFor="let cart of cartData"    class="cart-card">
+        <img src="{{cart.image}}" alt="Product">
+
+        <div class="cart-info">
+          <h4>{{cart.name}}</h4>
+          <p class="seller"> quantity:  {{cart.quantity}}</p>
+
+          <div class="price-section">
+            <span class="price">RS: {{cart.price}}</span>
+          </div>
+
+          <div class="action-row">
+            <div class="qty-box">
+              <button>-</button>
+              <span>1</span>
+              <button>+</button>
+            </div>
+
+            <button   (click)="removeTocart(cart.id)"  class="remove-btn">Remove To cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Summary -->
+    <div class="summary-card">
+      <h3>Order Summary</h3>
+
+      <div class="summary-row">
+        <span>Amount</span>
+        <span>{{priceSummary.price}}</span>
+      </div>
+      
+      <div class="summary-row">
+        <span>Tax</span>
+        <span>Rs:{{priceSummary.tax}}.</span>
+      </div>
+      <div class="summary-row">
+        <span>DisCount</span>
+        <span>Rs:{{priceSummary.Discount}}.</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Delivery Fee</span>
+        <span>Rs:{{priceSummary.DeliveryFee}}</span>
+      </div>
+
+      <div class="summary-row total">
+        <span>Total</span>
+        <span>Rs:{{priceSummary.total}}</span>
+      </div>
+
+      <button  (click)="checkOut()"  class="checkout-btn">
+        Proceed to Checkout
+      </button>
+    </div>
+
+  </div>
+</div>

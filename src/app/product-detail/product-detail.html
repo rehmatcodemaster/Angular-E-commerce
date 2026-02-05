@@ -1,0 +1,44 @@
+<div class="product-detail-container" *ngIf="productData">
+
+  <!-- Product Section -->
+  <div class="product-grid">
+
+    <!-- Product Image -->
+    <div class="product-image" 
+         (mousemove)="onMouseMove($event)" 
+         (mouseleave)="onMouseLeave()">
+      <img [src]="productData.image" alt="{{productData.name}}" [ngStyle]="zoomStyle">
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info">
+      <h1 class="product-name">{{productData.name}}</h1>
+      <h3 class="product-price">₹ {{productData.price}}</h3>
+      
+      <div class="product-color">
+        Color: 
+        <span class="color-box" [style.background-color]="productData.color"></span>
+      </div>
+
+      <h6 class="product-category">Category: {{productData.category}}</h6>
+      <p class="product-description">{{productData.description}}</p>
+
+      <!-- Buttons -->
+      <div class="product-buttons">
+        <button class="btn buy-now">Buy Now</button>
+
+        <!-- Add/Remove toggle -->
+        <button *ngIf="!removeCart" (click)="addToCart()" class="btn add-to-cart">Add to Cart</button>
+        <button *ngIf="removeCart" (click)="removeFromCart()" class="btn add-to-cart">Remove from Cart</button>
+      </div>
+
+      <!-- Quantity Selector -->
+      <div class="quantity-group">
+        <button (click)="handleQuantity('min')" class="qty-btn">-</button>
+        <input type="text" [value]="productQuantity" readonly>
+        <button (click)="handleQuantity('max')" class="qty-btn">+</button>
+      </div>
+
+    </div>
+  </div>
+</div>

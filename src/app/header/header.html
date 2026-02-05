@@ -1,0 +1,54 @@
+<nav class="nav">
+  <!-- LEFT : LOGO -->
+  <div class="nav-left">
+    <a routerLink="/" class="logo">Rehmat Store</a>
+  </div>
+
+  <!-- MOBILE MENU ICON -->
+  <div class="mobile-menu-icon" (click)="toggleMobileMenu()">
+    &#9776; <!-- Hamburger icon -->
+  </div>
+
+  <!-- CENTER : SEARCH (ALWAYS SAME) -->
+  <div class="nav-center">
+    <input
+      type="text"
+      placeholder="Search products"
+      #searchInput
+      (keyup)="searchProduct($event)"
+    />
+    <button (click)="submitSearch(searchInput.value)">Search</button>
+  </div>
+
+  <!-- RIGHT : MENU (CONTENT CHANGE, DESIGN SAME) -->
+  <div class="nav-right" [ngClass]="{'mobile-open': mobileMenuOpen}" [ngSwitch]="menuType">
+
+    <!-- BEFORE LOGIN -->
+    <ng-container *ngSwitchDefault>
+      <a routerLink="/">Home</a>
+      <a routerLink="/seller-auth">DashBoard</a>
+      <a routerLink="/user-auth">Account</a>
+      <a routerLink="/MyCart">Cart({{ cartItems }})</a>
+    </ng-container>
+
+    <!-- AFTER USER LOGIN -->
+    <ng-container *ngSwitchCase="'user'">
+      <a routerLink="/">Home</a>
+      <a routerLink="/seller-auth">Seller</a>
+      <a class="username" title="{{ userName }}">{{ userName }}</a>
+      <a routerLink="/Your-orders">My Orders</a>
+      <button (click)="userlogOut()">Logout</button>
+      <a routerLink="/MyCart">Cart({{ cartItems }})</a>
+    </ng-container>
+
+    <!-- SELLER LOGIN -->
+    <ng-container *ngSwitchCase="'seller'">
+      <a routerLink="seller-home">ProductList</a>
+      <a routerLink="/seller-add-product">Add products</a>
+
+      <a class="username">{{ sellerName }}</a>
+      <button (click)="logOut()">Logout</button>
+    </ng-container>
+
+  </div>
+</nav>

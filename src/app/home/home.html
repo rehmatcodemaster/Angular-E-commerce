@@ -1,0 +1,72 @@
+<div
+    *ngIf="popularProducts"
+    class="banner-wrapper"
+>
+    <ngb-carousel
+        class="banner-carousel"
+        [interval]="3000"
+        [pauseOnHover]="true"
+        [showNavigationArrows]="true"
+        [showNavigationIndicators]="false"
+    >
+        <ng-template
+            *ngFor="let item of popularProducts"
+            ngbSlide
+        >
+            <section class="banner-content">
+
+
+                <!-- TEXT CONTENT -->
+                <div class="banner-text">
+                    <h1>{{ item.name }}</h1>
+                    <p>{{ item.description }}</p>
+                </div>
+
+
+                <!-- IMAGE -->
+                 <a  routerLink="/product-detail-page/{{ item.id }}"> 
+                <div class="banner-image">
+                    <img
+                        [src]="item.image"
+                        [alt]="item.name"
+                        loading="lazy"
+                    >
+                </div>
+              </a>
+
+
+            </section>
+        </ng-template>
+    </ngb-carousel>
+</div>
+<div class="product-list-wrapper">
+  <h1 class="section-title">Trendy Products</h1>
+
+  <div class="product-grid">
+
+    <div class="product-card" *ngFor="let item of TrendyProducts">
+      <div class="product-image">
+        <img
+          src="{{item.image}}"
+          alt="Mobile Cover"
+        />
+      </div>
+
+      <div class="product-info">
+        <h3 class="product-name">{{item.name}}</h3>
+
+        <p class="product-price">Rs. {{item.price}}</p>
+
+        <p class="product-color">Color: {{item.color}}</p>
+      </div>
+
+      <div class="product-footer">
+      <a routerLink="/product-detail-page/{{ item.id }}">  <button          class="btn-outline">View Details</button></a>
+        <button class="btn-primary">Add to Cart</button>
+      </div>
+    </div>
+     
+
+  </div>
+</div>
+

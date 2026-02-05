@@ -1,0 +1,196 @@
+/* =====================
+   PRODUCT LIST WRAPPER
+===================== */
+.product-list {
+  padding: 30px 20px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #f85606; /* Daraz Orange */
+  letter-spacing: 1px;
+}
+
+/* SUCCESS MESSAGE */
+.message-p {
+  text-align: center;
+  margin: 12px 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: #16a34a;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* =====================
+   TABLE WRAPPER
+===================== */
+.table-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  overflow-x: auto;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.table-wrapper:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================
+   TABLE
+===================== */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* HEAD */
+.product-table thead {
+  background: #fafafa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.product-table th {
+  text-align: left;
+  padding: 16px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  letter-spacing: 0.5px;
+}
+
+/* BODY */
+.product-table td {
+  padding: 16px 14px;
+  font-size: 14px;
+  color: #444;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+.product-table tbody tr {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-table tbody tr:hover {
+  background: #f4f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* IMAGE */
+.product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* TEXT */
+.name {
+  font-weight: 600;
+  color: #111;
+}
+
+.price {
+  font-weight: 700;
+  color: #111;
+}
+
+.desc {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+.btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn.edit {
+  background: linear-gradient(45deg, #ffb347, #ffcc33);
+  color: #111;
+}
+
+.btn.delete {
+  background: linear-gradient(45deg, #ff4d4f, #ff7875);
+  color: #fff;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  opacity: 0.95;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* =====================
+   ANIMATION
+===================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .product-table {
+    min-width: 100%;
+  }
+
+  .desc {
+    max-width: 140px;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-table td,
+  .product-table th {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+
+  .product-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}

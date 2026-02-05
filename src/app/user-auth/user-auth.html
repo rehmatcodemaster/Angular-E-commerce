@@ -1,0 +1,106 @@
+<div class="seller-auth">
+
+  <!-- SIGN UP -->
+  <div *ngIf="!showLogin"   class="signup">
+    <h1>User Sign-up</h1>
+
+    <form
+      #userSignup="ngForm"
+      (ngSubmit)="signUp(userSignup.value)"
+      class="common-form"
+    >
+      <!-- Name -->
+      <input
+        type="text"
+        name="name"
+        ngModel
+        placeholder="Enter full name"
+        class="form-input"
+        required
+      />
+     
+      <!-- Email -->
+      <input
+        type="email"
+        name="email"
+        ngModel
+        placeholder="Enter email"
+        class="form-input"
+        required
+      />
+
+      <!-- Password -->
+      <input
+        type="password"
+        name="password"
+        ngModel
+        placeholder="Enter password"
+        class="form-input"
+        required
+      />
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="form-button"
+        [disabled]="!userSignup.valid"
+      >
+        Sign Up
+      </button>
+
+      <a (click)="openLogin()">Already have an account? Login</a>
+    </form>
+  </div>
+
+  <!-- LOGIN -->
+  <div *ngIf="showLogin"   class="login">
+    
+    <h1>User Login</h1>
+       <p class="autherror">{{autherror}}</p>
+    <form
+      #userLogin="ngForm"
+      (ngSubmit)="login(userLogin.value)"
+      class="common-form"
+    >
+      <!-- Email -->
+      <input
+        type="email"
+        name="email"
+        ngModel
+        #email="ngModel"
+        placeholder="Enter email"
+        class="form-input"
+        required
+        email
+      />
+    
+         <span *ngIf="email.invalid && email.touched" class="error">Email is required and must be valid </span>
+
+      <!-- Password -->
+      <input
+        type="password"
+        name="password"
+        ngModel
+        #password="ngModel"
+        placeholder="Enter password"
+        class="form-input"
+        required
+         minlength="8"
+    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}"
+      />
+        <span *ngIf="password.invalid && password.touched" class="error">Password is required and must be at least 8 characters long with uppercase, lowercase, and number </span>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="form-button"
+        [disabled]="!userLogin.valid"
+      >
+        Login
+      </button>
+
+      <a (click)="openSignup()">Create new account</a>
+    </form>
+  </div>
+
+</div>

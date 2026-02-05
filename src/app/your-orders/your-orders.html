@@ -1,0 +1,47 @@
+<div class="daraz-orders-page">
+  <h1 class="daraz-title">My Orders</h1>
+
+  <div class="daraz-table-wrapper" *ngIf="orderData.length > 0; else noOrders">
+    <table class="daraz-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Order ID</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let order of orderData">
+          <td>
+            <img [src]="order.image" alt="Order" class="order-img" />
+          </td>
+
+          <!-- ✅ Correct Order ID -->
+          <td>{{ order.id }}</td>
+
+          <td>Rs. {{ order.priceSummary?.total || order.price }}</td>
+
+          <td>
+            <span class="status in-progress">
+              {{ order.status || 'In Progress' }}
+            </span>
+          </td>
+
+          <td>
+            <!-- ✅ Correct Delete using order.id -->
+            <button class="cancel-btn" (click)="cancelOrder(order.id)">
+              Cancel Order
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noOrders>
+    <p>No orders found!</p>
+  </ng-template>
+</div>

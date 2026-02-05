@@ -1,0 +1,74 @@
+<div class="add-product-wrapper">
+  <div class="add-product-card">
+    <h2>Add New Product</h2>
+
+    <!-- ✅ success message (class SAME) -->
+    <p  class="success-msg">
+      {{ addProductMessage }}
+    </p>
+
+    <!-- ✅ form reference add ki (CSS same) -->
+    <form #addProduct="ngForm" (ngSubmit)="submit(addProduct.value, addProduct)">
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="name"
+          ngModel
+          placeholder="Product Name"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="number"
+          name="price"
+          ngModel
+          placeholder="Product Price"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="color"
+          ngModel
+          placeholder="Product Color"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          name="Category"
+          ngModel
+          placeholder="Product Category"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <textarea
+          name="description"
+          ngModel
+          placeholder="Product Description"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          name="image"
+          ngModel
+          placeholder="Product Image URL"
+          required
+        />
+      </div>
+
+      <button type="submit">Add Product</button>
+    </form>
+  </div>
+</div>

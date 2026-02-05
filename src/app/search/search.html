@@ -1,0 +1,25 @@
+<div class="search-page">
+    <h2 class="page-title">Search Results</h2>
+    <div class="product-grid">
+        <!-- PRODUCT CARD -->
+        <div class="product-card" *ngFor="let item of searchResult">
+            <div class="img-wrap">
+              <a routerLink="/product-detail-page/{{ item.id }}">
+                  <img
+                    src="{{ item.image }}"
+                    alt="Product"
+                >
+              </a>
+                <span class="discount">-20%</span>
+            </div>
+            <div class="card-body">
+                <h4  class="product-name">
+                    <a routerLink="/product-detail-page/{{ item.id }}">{{ item.name }}</a>
+                </h4>
+                <p class="price">Rs. {{ item.price }}</p>
+                 <p class="meta">Color: {{ item.color }}</p>
+                <p>Category: {{ item.category }}</p>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+       

@@ -1,0 +1,40 @@
+<div class="add-product-wrapper">
+  <div class="add-product-card">
+    <h2>Update Product</h2>
+    <p  class="p-message">{{productMessage}}</p>
+
+    <form #addProduct="ngForm" (ngSubmit)="submit(addProduct.value)">
+
+      <div class="form-group">
+        <input type="text" name="name" [ngModel]="productData?.name" placeholder="Product Name" required />
+      </div>
+
+      <div class="form-group">
+        <input type="number" name="price" [ngModel]="productData?.price" placeholder="Product Price" required />
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="color" [ngModel]="productData?.color" placeholder="Product Color" required />
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="category" [ngModel]="productData?.category" placeholder="Product Category" required />
+      </div>
+
+      <div class="form-group">
+        <textarea
+          name="description"
+          [ngModel]="productData?.description"
+          placeholder="Product Description"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="image" [ngModel]="productData?.image" placeholder="Product Image URL" required />
+      </div>
+
+      <button type="submit">Update Product</button>
+    </form>
+  </div>
+</div>

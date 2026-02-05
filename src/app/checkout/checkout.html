@@ -1,0 +1,179 @@
+<div class="checkout-page">
+
+
+    <!-- HEADER -->
+    <div class="checkout-header">
+        <h2>Checkout</h2>
+        <p>{{orderMsg}}</p>
+    </div>
+
+
+    <div class="checkout-layout">
+
+
+        <!-- LEFT SIDE: DELIVERY + PAYMENT -->
+        <div class="checkout-left">
+
+
+            <!-- DELIVERY ADDRESS -->
+            <div class="checkout-card">
+                <div class="card-title">
+                    <span class="badge">1</span>
+                    <h3>Delivery Address</h3>
+                </div>
+
+
+                <form
+                    #userData="ngForm"
+                    class="form-grid"
+                    (ngSubmit)="orderNow(userData.value)"
+                >
+                    <input
+                        type="email"
+                        name="email"
+                        ngModel
+                        placeholder="Enter your email"
+                        required
+                    >
+                    <input
+                        type="text"
+                        name="fullName"
+                        ngModel
+                        placeholder="Full Name"
+                        required
+                    >
+                    <input
+                        type="text"
+                        name="mobile"
+                        ngModel
+                        placeholder="Mobile Number"
+                        required
+                    >
+                    <input
+                        type="text"
+                        name="city"
+                        ngModel
+                        placeholder="City"
+                        required
+                    >
+                    <input
+                        type="text"
+                        name="postalCode"
+                        ngModel
+                        placeholder="Postal Code"
+                        required
+                    >
+                    <input
+                        type="text"
+                        name="address"
+                        ngModel
+                        placeholder="Complete Address"
+                        required
+                    >
+
+
+                    <button
+                      
+                        type="submit"
+                        class="place-order-btn"
+                    >
+                        Order Now
+                    </button>
+                </form>
+            </div>
+
+
+            <!-- PAYMENT METHODS -->
+            <div class="checkout-card">
+                <div class="card-title">
+                    <span class="badge">2</span>
+                    <h3>Payment Method</h3>
+                </div>
+
+
+                <label class="payment-option active">
+                    <input
+                        type="radio"
+                        name="pay"
+                        checked
+                    >
+                    <span>Cash on Delivery</span>
+                    <span class="tag">Most Used</span>
+                </label>
+
+
+                <label class="payment-option">
+                    <input
+                        type="radio"
+                        name="pay"
+                    >
+                    <span>Credit / Debit Card</span>
+                    <span class="tag">Visa • Master</span>
+                </label>
+
+
+                <label class="payment-option">
+                    <input
+                        type="radio"
+                        name="pay"
+                    >
+                    <span>EasyPaisa / JazzCash</span>
+                    <span class="tag">Fast</span>
+                </label>
+            </div>
+
+
+        </div>
+
+
+        <!-- RIGHT SIDE: ORDER SUMMARY -->
+        <div class="checkout-right">
+            <div class="summary-card">
+                <h3>Order Summary</h3>
+
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>Rs. {{ priceSummary.price }}</span>
+                </div>
+
+
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>Rs. {{ priceSummary.DeliveryFee }}</span>
+                </div>
+
+
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span>Rs. {{ priceSummary.tax }}</span>
+                </div>
+
+
+                <div class="summary-row">
+                    <span>Discount</span>
+                    <span>- Rs. {{ priceSummary.Discount }}</span>
+                </div>
+
+
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>Rs. {{ priceSummary.total }}</span>
+                </div>
+
+                 <button
+                      (click)="myorder()"
+                        type="submit"
+                        class="place-order-btn"
+                    >
+                        Confirm Order
+                    </button>
+
+
+                <div class="secure">🔒 100% Secure Payments</div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
